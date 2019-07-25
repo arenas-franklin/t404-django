@@ -1,4 +1,20 @@
 {% extends 'shared/layout.html' %}
 {% block conteudo%}
-    <h1>pagina principal</h1>
+    <h1>Ideias Malucas</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Nome</label>
+        <input type="text" name="nome" id="">
+        
+        <label for="">Sobrenome</label>
+        <input type="text" name="sobrenome" id="">
+        
+        <label for="">Genero:</label>
+        <select name="genero" id="">
+            <option value="F">Femenino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Outros</option>
+        </select>
+        <input type="submit" value="Cadastrar">
+    </form>
 {% endblock %}
