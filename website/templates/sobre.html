@@ -2,8 +2,18 @@
 
 {% block conteudo %}
 
-<h1>sobre</h1>
+{{msg}}
+<h1>Listagem das Ideias</h1>
+<p>
+    {% for ideia in ideias %}
+        <p>{{ideia.pessoa.nome}}</p>
+        <p>{{ideia.titulo}}</p>
+        <p>{{ideia.categoria}}</p>
+        <p>{{ideia.descricao}}</p>
+        <a href="/remover_ideia/{{ideia.id}}"><input type="button" value="Deletar"></a>
+    {% endfor %}
+</p>
 
-{% include 'shared/lista_compartilha.html' %}
+
 
 {% endblock %}

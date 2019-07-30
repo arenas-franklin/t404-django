@@ -1,7 +1,10 @@
 from django.urls import path, include
-from . import views
+from website.views import index, sobre, login, cadastrar_ideia, remover_ideia
 
 urlpatterns = [
-    path('', views.index),
-    path('sobre', views.sobre)
+    path('', index),
+    path('sobre', sobre),
+    path('login', login),
+    path('ideias', cadastrar_ideia),
+    path('remover_ideia/<int:id>', remover_ideia)
 ]

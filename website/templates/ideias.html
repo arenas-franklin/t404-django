@@ -1,0 +1,34 @@
+{% extends 'shared/layout.html' %}
+{% block conteudo %}
+
+<h1>Ideias Malucas</h1>
+{% if pessoa is None %}
+    <h1>Ops, você precisa se cadastrar</h1>
+    <p>
+        <a href="/">clique aqui para se cadastrar</a>
+    </p>
+{% else %}
+<h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
+<form action="/ideias" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="email" value="{{pessoa.email}}">
+    <div>
+        <input type="text" name="titulo" placeholder="Nome da ideia">
+        <label for="descricao">Descreva sua ideia</label>
+    </div>
+    
+    <textarea name="descricao" cols="30" rows="10">
+    </textarea>
+    <select name="categorias">
+        <option value="TERRA_PLANA">Terra Plana</option>
+        <option value="CONTRA_GROGER">Contra o coach Groger</option>
+        <option value="CONTRA_JOAO">Contra João</option>
+        <option value="PUBLICAS">Públicas</option>
+        <option value="OUTROS">Outros</option>
+    </select>
+    <input type="text" name="categoria_outros" placeholder="Caso outros, qual?">
+    <input type="submit" value="Cadastrar Ideia">
+</form>
+
+{% endif %}
+{% endblock %}

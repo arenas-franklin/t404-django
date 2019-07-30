@@ -1,13 +1,16 @@
 body{
-    background-color: red;
+    background-color:#FFC041;
 
 }
 
 h1{
-    color:white;
+    color:#FF734A;
 }
 
-form{
+
+.conteudo{
     display:flex;
+    width: 80vw;
     flex-direction: column;
+    
 }
